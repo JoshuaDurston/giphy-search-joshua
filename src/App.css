@@ -1,12 +1,4 @@
-.app {
-  text-align: center;
-}
-
-.app-logo {
-  width: 500px;
-  max-width: 90%;
-  pointer-events: none;
-}
+/* general app styling */
 
 .app-header {
   display: flex;
@@ -14,21 +6,126 @@
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
   font-size: calc(10px + 2vmin);
-  background: linear-gradient(50deg, #fff 0%, #f4900e 50%, #ffeda7 100%);
+  background: #7bc8db;
+  font-family: arial;
+  font-weight: bold;
 }
 
-.app-link {
-  color: #61dafb;
+/* loader (spinning wheel) */
+.loader {
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-top: 4px solid #fff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin-top: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
 
-  to {
-    transform: rotate(360deg);
-  }
+/* GIF container */
+.gifs-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.gif-item {
+  background: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: inline-block; /* resize based on content size */
+  text-align: center;
+  max-width: none;
+  width: auto; 
+}
+
+.gif-image {
+  width: auto;
+  height: auto;
+  max-width: 100%; /* ensure the GIF does not exceed container size */
+  border-radius: 8px;
+}
+
+.gif-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #f4900e;
+  font-weight: bold;
+  margin-top: 5px;
+  position: relative;
+}
+
+/* Giphy logo styling */
+.gif-link img {
+  width: 60px;  
+  height: 60px; 
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.gif-link:hover img {
+  transform: scale(1.1); /* slightly grow logo on hover */
+}
+
+/* copy icon button */
+.copy-url-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  position: relative; /* needed for positioning the tooltip */
+}
+
+
+
+/* container for the buttons, to align them horizontally */
+.buttons.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+}
+
+/* styling across both copy and giphy buttons */
+.copy-url-button::after, .gif-link::after {
+  opacity: 1; /* Show on hover */
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.80);
+  color: white;
+  padding: 5px;
+  font-size: 12px;
+  border-radius: 4px;
+  opacity: 0;
+  transition: opacity 0.2s ease; 
+  pointer-events: none;
+  position: absolute;
+}
+
+.copy-url-button:hover::after, .gif-link:hover::after {
+  opacity: 1; /* show on hover */
+}
+
+/* specific Giphy logo css */
+.gif-link:hover::after {
+  content: "View on Giphy";
+  left: 90px;
+}
+
+/* specific copy button css */
+.copy-url-button::after {
+  content: "Copy Link";
+  bottom: -10px;
+  right: 20px;
+  
 }
