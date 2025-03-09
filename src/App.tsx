@@ -23,7 +23,8 @@ function App() {
 
   // perform search
   const handleSearch = async () => {
-    if (!searchTerm) return;
+    const trimmedSearchTerm = searchTerm.trim(); // trim whitespace
+    if (!trimmedSearchTerm) return;
 
     setGifs([]);
     setTotalCount(0);
@@ -31,7 +32,7 @@ function App() {
     setNoResults(false); // reset no results message on new search
 
     try {
-      const { gifs, totalCount } = await fetchGifs(searchTerm);
+      const { gifs, totalCount } = await fetchGifs(trimmedSearchTerm);
 
       setGifs(gifs);
       setTotalCount(totalCount);
