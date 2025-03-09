@@ -1,0 +1,64 @@
+# Ignore sensitive files
+dc-2019-06-10.examples.json
+cos.md
+
+# Ignore AWS credentials and configuration
+.aws/
+*.aws/credentials
+*.aws/config
+
+# Node.js
+node_modules/
+
+# Log files
+*.log
+npm-debug.log*
+yarn-debug.log
+yarn-error.log
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# IDE & editor-specific files
+.vscode/
+.idea/
+
+# Environment variables files
+.env
+.env.local
+.env.*.local
+
+# Build files
+build/
+dist/
+
+# Dependency directories
+bower_components/
+
+# MacOS system files
+.AppleDouble
+.LSOverride
+
+# Windows system files
+Desktop.ini
+
+# Linux system files
+*~
+
+# npm package lock files (optional, some teams prefer to keep them)
+package-lock.json
+
+# Serverless & CloudFormation files
+.serverless/
+serverless.yaml
+cloudformation-template.json
+
+# Next.js build output
+.next/
+
+# Local npm packages
+.npm/
+
+# Yarn's lock file (if using yarn)
+yarn.lock
